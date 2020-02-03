@@ -1,0 +1,9 @@
+{
+    "path" : "~/Source/vocDB",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

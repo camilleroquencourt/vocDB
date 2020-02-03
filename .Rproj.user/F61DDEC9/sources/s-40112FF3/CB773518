@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1580738498170.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CB773518",
+    "lastKnownWriteTime" : 1580738365,
+    "last_content_update" : 1580738365,
+    "path" : "~/Source/vocDB/R/buidVocDb.R",
+    "project_path" : "R/buidVocDb.R",
+    "properties" : {
+        "cursorPosition" : "7,45",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

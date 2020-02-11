@@ -1,12 +1,11 @@
 Package: vocDB
 Type: Package
-Title: building the reference table of element masses
-Version: 0.1.0
-Date: 2020-01-28
-Author: Etienne Thevenot 
-Maintainer: etienne.thevenot@cea.fr
-Description: This package allows you to structure the data base vocDB.tsv present in the ptairMS package from 
-  different litteratures 
+Title: Building the 'vocDB' and 'element' tables for the annotation of VOCs with ptairMS
+Version: 0.1.2
+Date: 2020-02-11
+Authors: Camille Roquencourt, Paul Zheng, Pierrick Roger and Etienne Thevenot 
+Maintainer: Etienne A. Thevenot <etienne.thevenot@cea.fr>
+Description: This package builds the database file vocDB.tsv included in the ptairMS package for the annotation of VOCs.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

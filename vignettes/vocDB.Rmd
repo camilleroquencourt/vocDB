@@ -21,7 +21,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.width = 8,
                       fig.height = 8,
-                      fig.path = 'figures/temp/')
+                      fig.path = 'figures/temp/',
+                      warnings = FALSE)
 ```
 
 # Table of element masses
@@ -86,27 +87,23 @@ utils::write.table(element.df,
 
 Source: [[@de_lacy_costello_review_2014]](https://doi.org/10.1088/1752-7155/8/1/014001)
 
-```{r eval=FALSE, include=FALSE}
-databases = "de_Lacy_Costello_2014"
-
-# if ("de_Lacy_Costello_2014" %in% databases) {
-
+```{r}
 # loading the de Lacy Costello database (2014)
 # [CAS have been converted to CHEBIs by Pierrick Roger-Mele with the 'biodb' package]
-cost.df <- utils::read.table(file = system.file("extdata/reference_tables/vocDB_tables/de_Lacy_Costello_2014.tsv",
-                                                package = "vocDB"),
-                             comment.char = "",
-                             header = TRUE,
-                             quote = "",
-                             sep = "\t",
-                             stringsAsFactors = FALSE)
+costello.df <- utils::read.table(file = system.file("extdata/de_Lacy_Costello_2014.tsv",
+                                                    package = "vocDB"),
+                                 comment.char = "",
+                                 header = TRUE,
+                                 quote = "",
+                                 sep = "\t",
+                                 stringsAsFactors = FALSE)
 
-message("Initial number annotations: ", nrow(cost.df))
+message("Initial number annotations: ", nrow(costello.df))
 
 
 # adding extra information from CTS conversion of CAS ids
 # https://cts.fiehnlab.ucdavis.edu/batch
-cts.df <- utils::read.table(file = system.file("extdata/reference_tables/vocDB_tables/de_Lacy_Costello_2014_cts-20191029142351.csv",
+cts.df <- utils::read.table(file = system.file("extdata/de_Lacy_Costello_2014_cts-20191029142351.csv",
                                                package = "vocDB"),
                             comment.char = "",
                             header = TRUE,
@@ -117,7 +114,7 @@ cts.df[cts.df[, "ChEBI"] == "No result", "ChEBI"] <- ""
 
 ## additional ChEBI to those already found by biodb
 add_chebi.vi <- setdiff(which(cts.df[, "ChEBI"] != ""),
-                        which(cost.df[, "chebi.accession"] != ""))
+                        which(costello.df[, "chebi.accession"] != ""))
 add_chebi.vc <- cts.df[add_chebi.vi, "ChEBI"]
 add_chebi.vc <- gsub("CHEBI:", "", gsub("\nCHEBI:", "|", add_chebi.vc))
 add_chebi.vl <- !grepl("|", add_chebi.vc, fixed = TRUE)
@@ -145,97 +142,97 @@ mybiodb$terminate()
 
 add_chebi.vi <- add_chebi.vi[-14] # weird formula (XXX)nH2O
 chebi.df <- chebi.df[-14, ]
-cost.df[add_chebi.vi, "chebi.accession"] <- chebi.df[, "chebi.id"]
-cost.df[add_chebi.vi, "chebi.formula"] <- chebi.df[, "formula"]
-cost.df[add_chebi.vi, "chebi.monoisotopic.mass"] <- chebi.df[, "monoisotopic.mass"]
-cost.df[add_chebi.vi, "chebi.name"] <- chebi.df[, "name"]
-cost.df[add_chebi.vi, "chebi.inchi"] <- chebi.df[, "inchi"]
+costello.df[add_chebi.vi, "chebi.accession"] <- chebi.df[, "chebi.id"]
+costello.df[add_chebi.vi, "chebi.formula"] <- chebi.df[, "formula"]
+costello.df[add_chebi.vi, "chebi.monoisotopic.mass"] <- chebi.df[, "monoisotopic.mass"]
+costello.df[add_chebi.vi, "chebi.name"] <- chebi.df[, "name"]
+costello.df[add_chebi.vi, "chebi.inchi"] <- chebi.df[, "inchi"]
 
 ## getting mz_Hplus and formula_Hplus for those new ChEBI
 mz_formula.vn <- ptairMS::formula2mass(chebi.df[, "formula"],
                                        protonizeL = TRUE)
-cost.df[add_chebi.vi, "mz_Hplus"] <- mz_formula.vn
-cost.df[add_chebi.vi, "formula_Hplus"] <- names(mz_formula.vn)
+costello.df[add_chebi.vi, "mz_Hplus"] <- mz_formula.vn
+costello.df[add_chebi.vi, "formula_Hplus"] <- names(mz_formula.vn)
 
 
 # removing all rows (molecules) without CAS converted ids (ie unkown mz and formula)
-cost.df <- cost.df[!is.na(cost.df[, "mz_Hplus"]), ]
+costello.df <- costello.df[!is.na(costello.df[, "mz_Hplus"]), ]
 
-message("Number of annotations with converted CAS ids: ", nrow(cost.df))
+message("Number of annotations with converted CAS ids: ", nrow(costello.df))
 
 # indexing isomers
 
 isomer.i <- 1
 
-isomer.vi <- numeric(nrow(cost.df))
+isomer.vi <- numeric(nrow(costello.df))
 
-for (k in 1:nrow(cost.df)) {
+for (k in 1:nrow(costello.df)) {
   
   if (isomer.vi[k] == 0) {
     
-    isomer.vi[which(cost.df[, "formula_Hplus"] == cost.df[k, "formula_Hplus"])] <- isomer.i
+    isomer.vi[which(costello.df[, "formula_Hplus"] == costello.df[k, "formula_Hplus"])] <- isomer.i
     isomer.i <- isomer.i + 1
     
   }
   
 }
 
-cost.df[, "isomer.group"] <- isomer.vi
+costello.df[, "isomer.group"] <- isomer.vi
 
-cas.vi <- suppressWarnings(as.numeric(sapply(cost.df[, "cas.number"],
+cas.vi <- suppressWarnings(as.numeric(sapply(costello.df[, "cas.number"],
                                              function(cas.c) {
                                                gsub("-", "", cas.c)
                                              })))
 
-cost.df <- cost.df[order(cost.df[, "mz_Hplus"],
-                         cas.vi,
-                         cost.df[, "compound.name"]), ]
+costello.df <- costello.df[order(costello.df[, "mz_Hplus"],
+                                 cas.vi,
+                                 costello.df[, "compound.name"]), ]
 
 # concatenating isomers
 
-cost.remaining.vi <- 1:nrow(cost.df)
-cost.discarding.vi <- integer()
+costello.remaining.vi <- 1:nrow(costello.df)
+costello.discarding.vi <- integer()
 
-while (length(cost.remaining.vi) > 0) {
+while (length(costello.remaining.vi) > 0) {
   
-  cost.selecting.vi <- which(cost.df[, "isomer.group"] == cost.df[cost.remaining.vi[1], "isomer.group"])
+  costello.selecting.vi <- which(costello.df[, "isomer.group"] == costello.df[costello.remaining.vi[1], "isomer.group"])
   
-  if (length(cost.selecting.vi) > 1) {
+  if (length(costello.selecting.vi) > 1) {
     
-    for (colname.c in setdiff(colnames(cost.df), c("mz_Hplus",
-                                                   "formula_Hplus",
-                                                   "reference",
-                                                   "chebi.formula",
-                                                   "chebi.monoisotopic.mass"))) {
+    for (colname.c in setdiff(colnames(costello.df), c("mz_Hplus",
+                                                       "formula_Hplus",
+                                                       "reference",
+                                                       "chebi.formula",
+                                                       "chebi.monoisotopic.mass"))) {
       
-      cost.df[cost.selecting.vi[1], colname.c] <- paste(cost.df[cost.selecting.vi, colname.c],
-                                                        collapse = "|")
+      costello.df[costello.selecting.vi[1], colname.c] <- paste(costello.df[costello.selecting.vi, colname.c],
+                                                                collapse = "|")
       
     }
     
-    cost.discarding.vi <- c(cost.discarding.vi, cost.selecting.vi[-1])
+    costello.discarding.vi <- c(costello.discarding.vi, costello.selecting.vi[-1])
     
   }
   
-  cost.remaining.vi <- setdiff(cost.remaining.vi, cost.selecting.vi)
+  costello.remaining.vi <- setdiff(costello.remaining.vi, costello.selecting.vi)
   
 }
 
-cost.df <- cost.df[-cost.discarding.vi, ]
+costello.df <- costello.df[-costello.discarding.vi, ]
 
-message("Final number of annotations after concatenating isomers: ", nrow(cost.df))
+message("Final number of annotations after concatenating isomers: ", nrow(costello.df))
 
-colnames(cost.df) <- gsub("cas.number", "cas", colnames(cost.df))
-colnames(cost.df) <- gsub("compound.name", "cas.name", colnames(cost.df))
-colnames(cost.df) <- gsub("chebi.accession", "chebi", colnames(cost.df))
-colnames(cost.df) <- gsub("chebi.formula", "formula", colnames(cost.df))
-colnames(cost.df) <- gsub("chebi.monoisotopic.mass", "monoisotopic.mass", colnames(cost.df))
-colnames(cost.df) <- gsub("chebi.inchi", "inchi", colnames(cost.df))
-cost.df[, "isomer.group"] <- NULL
+colnames(costello.df) <- gsub("cas.number", "cas", colnames(costello.df))
+colnames(costello.df) <- gsub("compound.name", "cas.name", colnames(costello.df))
+colnames(costello.df) <- gsub("chebi.accession", "chebi", colnames(costello.df))
+colnames(costello.df) <- gsub("chebi.formula", "formula", colnames(costello.df))
+colnames(costello.df) <- gsub("chebi.monoisotopic.mass", "monoisotopic.mass", colnames(costello.df))
+colnames(costello.df) <- gsub("chebi.inchi", "inchi", colnames(costello.df))
+costello.df[, "isomer.group"] <- NULL
 
 # building a 'summary' annotation
 
-summary.vc <- apply(cost.df, 1,
+summary.vc <- apply(costello.df, 1,
                     function(voc.vc) {
                       
                       mz.n <- floor(as.numeric(voc.vc["mz_Hplus"]) * 1000)/1000
@@ -259,37 +256,39 @@ summary.vc <- apply(cost.df, 1,
                       
                     })
 
-cost.df[, "summary"] <- summary.vc
+costello.df[, "summary"] <- summary.vc
 
-cost.df[, "chebi"] <- paste0("CHEBI:", cost.df[, "chebi"])
+costello.df[, "chebi"] <- paste0("CHEBI:", costello.df[, "chebi"])
 
-vocDB.df <- cost.df[, c("mz_Hplus",
-                        "formula_Hplus",
-                        "cas.name",
-                        "summary",
-                        "cas",
-                        "blood",
-                        "breath",
-                        "faeces",
-                        "milk",
-                        "saliva",
-                        "skin",
-                        "urine",
-                        "reference",
-                        "chebi",
-                        "monoisotopic.mass",
-                        "formula",
-                        "chebi.name",
-                        "inchi",
-                        "kegg.compound.id")]
+vocDB.df <- costello.df[, c("mz_Hplus",
+                            "formula_Hplus",
+                            "cas.name",
+                            "summary",
+                            "cas",
+                            "blood",
+                            "breath",
+                            "faeces",
+                            "milk",
+                            "saliva",
+                            "skin",
+                            "urine",
+                            "reference",
+                            "chebi",
+                            "monoisotopic.mass",
+                            "formula",
+                            "chebi.name",
+                            "inchi",
+                            "kegg.compound.id")]
+```
 
+Saving (not run)
+
+```{r}
 utils::write.table(vocDB.df,
                    file = "vocDB.tsv",
                    quote = FALSE,
                    row.names = FALSE,
                    sep = "\t")
-
-# 'vocDB.tsv' file to be moved to the 'ptairMS/extdata/reference_tables/' directory
 ```
 
 # References

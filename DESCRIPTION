@@ -1,7 +1,7 @@
 Package: vocDB
 Type: Package
 Title: Building the 'vocDB' and 'element' tables for the annotation of VOCs with ptairMS
-Version: 0.1.2
+Version: 0.1.4
 Date: 2020-02-11
 Authors: Camille Roquencourt, Paul Zheng, Pierrick Roger and Etienne Thevenot 
 Maintainer: Etienne A. Thevenot <etienne.thevenot@cea.fr>

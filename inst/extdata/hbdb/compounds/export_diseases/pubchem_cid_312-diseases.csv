@@ -1,0 +1,15 @@
+name,meshid,meshname,scope
+chronic cough,D002908,Chronic Disease,"Diseases which have one or more of the following characteristics: they are permanent, leave residual disability, are caused by nonreversible pathological
+alteration, require special training of the patient for rehabilitation, or may be
+expected to require a long period of supervision, observation, or care.
+(Dictionary of Health Services Management, 2d ed)"
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+Cough,D003371,Cough,"A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation. It is a protective response that serves to clear
+the trachea, bronchi, and/or lungs of irritants and secretions, or to prevent
+aspiration of foreign materials into the lungs."

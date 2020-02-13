@@ -1,0 +1,18 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+community-acquired pneumonia,D011014,Pneumonia,Infection of the lung often accompanied by inflammation. Year introduced: 1963
+welding,D014896,Welding,"Joining metal pieces or parts together by melting the adjoining surfaces with heat, using a heat source such as a blowtorch or electric arc. The melted
+surfaces are then pressed together by hammering."
+community-acquired pneumonia,D017714,Community-Acquired Infections,"Any infection acquired in the community, that is, contrasted with those acquired  in a health care facility (CROSS INFECTION). An infection would be classified as 
+community-acquired if the patient had not recently been in a health care facility
+or been in contact with someone who had been recently in a health care facility.
+Year introduced: 1994"

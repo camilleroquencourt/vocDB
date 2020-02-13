@@ -1,0 +1,24 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+wheezing,D012135,Respiratory Sounds,"Noises, normal and abnormal, heard on auscultation over any part of the RESPIRATORY TRACT.
+Year introduced: 1980"
+patient submitted to cardiac surgery,D013903,Thoracic Surgery,"A surgical specialty concerned with diagnosis and treatment of disorders of the heart, lungs, and esophagus. Two major types of thoracic surgery are classified
+as pulmonary and cardiovascular.
+Year introduced: 1980"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+idiopathic pulmonary fibrosis,D054990,Idiopathic Pulmonary Fibrosis,"A common interstitial lung disease of unknown etiology, usually occurring between 50-70 years of age. Clinically, it is characterized by an insidious onset of
+breathlessness with exertion and a nonproductive cough, leading to progressive
+DYSPNEA. Pathological features show scant interstitial inflammation, patchy
+collagen fibrosis, prominent fibroblast proliferation foci, and microscopic
+honeycomb change.
+Year introduced: 2009"

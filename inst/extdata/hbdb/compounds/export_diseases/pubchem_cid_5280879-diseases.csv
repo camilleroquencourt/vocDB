@@ -1,0 +1,39 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+aspirin-sensitive asthma,D055963,"Asthma, Aspirin-Induced","Asthmatic adverse reaction (e.g., BRONCHOCONSTRICTION) to conventional NSAIDS including aspirin use.
+Year introduced: 2010"
+asthmatic children,D002648,Child,"A person 6 to 12 years of age. An individual 2 to 5 years old is CHILD, PRESCHOOL."
+seasonal allergic rhinitis (SAR),D006255,"Rhinitis, Allergic, Seasonal","Allergic rhinitis that occurs at the same time every year. It is characterized by acute CONJUNCTIVITIS with lacrimation and ITCHING, and regarded as an allergic
+condition triggered by specific ALLERGENS.
+Year introduced: 2006 (1963)"
+Pneumoconiosis,D011009,Pneumoconiosis,"A diffuse parenchymal lung disease caused by inhalation of dust and by tissue reaction to their presence. These inorganic, organic, particulate, or vaporized
+matters usually are inhaled by workers in their occupational environment, leading
+to the various forms (ASBESTOSIS; BYSSINOSIS; and others). Similar air pollution 
+can also have deleterious effects on the general population.
+Year introduced: 1966"
+wheezing,D012135,Respiratory Sounds,"Noises, normal and abnormal, heard on auscultation over any part of the RESPIRATORY TRACT.
+Year introduced: 1980"
+rhinitis,D012220,Rhinitis,"Inflammation of the NASAL MUCOSA, the mucous membrane lining the NASAL CAVITIES."
+occupational asthma (OA),D059366,"Asthma, Occupational","Asthma attacks caused, triggered, or exacerbated by OCCUPATIONAL EXPOSURE. Year introduced: 2012"
+"non-small cell lung cancer, lung neoplasms",D008175,Lung Neoplasms,Tumors or cancer of the LUNG.
+allergic rhinitis with asthma,D012221,"Rhinitis, Allergic, Perennial","Inflammation of the mucous membrane of the nose similar to that found in hay fever except that symptoms persist throughout the year. The causes are usually
+air-borne allergens, particularly dusts, feathers, molds, animal fur, etc.
+Year introduced: 1980"
+sarcoidosis,D012507,Sarcoidosis,"An idiopathic systemic inflammatory granulomatous disorder comprised of epithelioid and multinucleated giant cells with little necrosis. It usually
+invades the lungs with fibrosis and may also involve lymph nodes, skin, liver,
+spleen, eyes, phalangeal bones, and parotid glands.
+Year introduced: PSEUDOTUBERCULOSIS use SARCOIDOSIS 1963-1992"
+sleep-disordered breathing (SDB) ,D012891,Sleep Apnea Syndromes,"Disorders characterized by multiple cessations of respirations during sleep that  induce partial arousals and interfere with the maintenance of sleep. Sleep apnea 
+syndromes are divided into central (see SLEEP APNEA, CENTRAL), obstructive (see
+SLEEP APNEA, OBSTRUCTIVE), and mixed central-obstructive types.
+Year introduced: 1980"
+exercise-induced bronchoconstriction,D016084,Bronchoconstriction,"Narrowing of the caliber of the BRONCHI, physiologically or as a result of pharmacological intervention.
+Year introduced: 1991"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+"non-small cell lung cancer, carcinoma",D002289,"Carcinoma, Non-Small-Cell Lung","A heterogeneous aggregate of at least three distinct histological types of lung cancer, including SQUAMOUS CELL CARCINOMA; ADENOCARCINOMA; and LARGE CELL
+CARCINOMA. They are dealt with collectively because of their shared treatment
+strategy.
+Year introduced: 1994"

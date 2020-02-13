@@ -1,0 +1,13 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+Pneumoconiosis,D011009,Pneumoconiosis,"A diffuse parenchymal lung disease caused by inhalation of dust and by tissue reaction to their presence. These inorganic, organic, particulate, or vaporized
+matters usually are inhaled by workers in their occupational environment, leading
+to the various forms (ASBESTOSIS; BYSSINOSIS; and others). Similar air pollution 
+can also have deleterious effects on the general population.
+Year introduced: 1966"
+Silicotics,D012829,Silicosis,"A form of pneumoconiosis resulting from inhalation of dust containing crystalline form of SILICON DIOXIDE, usually in the form of quartz. Amorphous silica is
+relatively nontoxic."
+aspirin-sensitive asthma,D055963,"Asthma, Aspirin-Induced","Asthmatic adverse reaction (e.g., BRONCHOCONSTRICTION) to conventional NSAIDS including aspirin use.
+Year introduced: 2010"

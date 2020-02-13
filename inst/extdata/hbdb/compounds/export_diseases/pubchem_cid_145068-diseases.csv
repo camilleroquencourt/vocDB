@@ -1,0 +1,35 @@
+name,meshid,meshname,scope
+asbestosis,D001195,Asbestosis,"A form of pneumoconiosis caused by inhalation of asbestos fibers which elicit potent inflammatory responses in the parenchyma of the lung. The disease is
+characterized by interstitial fibrosis of the lung, varying from scattered sites 
+to extensive scarring of the alveolar interstitium."
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+upper and lower airway inflammation in Atopic dermatitis (AD),D003876,"Dermatitis, Atopic","A chronic inflammatory genetically determined disease of the skin marked by increased ability to form reagin (IgE), with increased susceptibility to allergic
+rhinitis and asthma, and hereditary disposition to a lowered threshold for
+pruritus. It is manifested by lichenification, excoriation, and crusting, mainly 
+on the flexural surfaces of the elbow and knee. In infants it is known as
+infantile eczema."
+primary ciliary dyskinesia,D007619,Kartagener Syndrome,"An autosomal recessive disorder characterized by a triad of DEXTROCARDIA; INFERTILITY; and SINUSITIS. The syndrome is caused by mutations of DYNEIN genes
+encoding motility proteins which are components of sperm tails, and CILIA in the 
+respiratory and the reproductive tracts.
+Year introduced: 2002 (1963)"
+obstructive sleep apnea,D020181,"Sleep Apnea, Obstructive","A disorder characterized by recurrent apneas during sleep despite persistent respiratory efforts. It is due to upper airway obstruction. The respiratory
+pauses may induce HYPERCAPNIA or HYPOXIA. Cardiac arrhythmias and elevation of
+systemic and pulmonary arterial pressures may occur. Frequent partial arousals
+occur throughout sleep, resulting in relative SLEEP DEPRIVATION and daytime
+tiredness. Associated conditions include OBESITY; ACROMEGALY; MYXEDEMA;
+micrognathia; MYOTONIC DYSTROPHY; adenotonsilar dystrophy; and NEUROMUSCULAR
+DISEASES. (From Adams et al., Principles of Neurology, 6th ed, p395)
+Year introduced: 2000"
+obese patients with obstructive sleep apnea syndrome,D009765,Obesity,"A status with BODY WEIGHT that is grossly above the acceptable or desirable weight, usually due to accumulation of excess FATS in the body. The standards may
+vary with age, sex, genetic or cultural background. In the BODY MASS INDEX, a BMI
+greater than 30.0 kg/m2 is considered obese, and a BMI greater than 40.0 kg/m2 is
+considered morbidly obese (MORBID OBESITY)."

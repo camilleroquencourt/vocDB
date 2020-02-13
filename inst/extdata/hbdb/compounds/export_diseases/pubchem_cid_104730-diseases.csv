@@ -1,0 +1,11 @@
+name,meshid,meshname,scope
+sarcoidosis,D012507,Sarcoidosis,"An idiopathic systemic inflammatory granulomatous disorder comprised of epithelioid and multinucleated giant cells with little necrosis. It usually
+invades the lungs with fibrosis and may also involve lymph nodes, skin, liver,
+spleen, eyes, phalangeal bones, and parotid glands.
+Year introduced: PSEUDOTUBERCULOSIS use SARCOIDOSIS 1963-1992"
+idiopathic pulmonary fibrosis,D054990,Idiopathic Pulmonary Fibrosis,"A common interstitial lung disease of unknown etiology, usually occurring between 50-70 years of age. Clinically, it is characterized by an insidious onset of
+breathlessness with exertion and a nonproductive cough, leading to progressive
+DYSPNEA. Pathological features show scant interstitial inflammation, patchy
+collagen fibrosis, prominent fibroblast proliferation foci, and microscopic
+honeycomb change.
+Year introduced: 2009"

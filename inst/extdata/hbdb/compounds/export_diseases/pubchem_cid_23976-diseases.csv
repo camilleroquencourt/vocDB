@@ -1,0 +1,45 @@
+name,meshid,meshname,scope
+"non-small cell lung cancer, lung neoplasms",D008175,Lung Neoplasms,Tumors or cancer of the LUNG.
+sarcoidosis,D012507,Sarcoidosis,"An idiopathic systemic inflammatory granulomatous disorder comprised of epithelioid and multinucleated giant cells with little necrosis. It usually
+invades the lungs with fibrosis and may also involve lymph nodes, skin, liver,
+spleen, eyes, phalangeal bones, and parotid glands.
+Year introduced: PSEUDOTUBERCULOSIS use SARCOIDOSIS 1963-1992"
+worker,D015989,Healthy?Worker?Effect,"Phenomenon of workers' usually exhibiting overall death rates lower than those of the general population due to the fact that the severely ill and disabled are
+ordinarily excluded from employment.
+Year introduced: 1990
+Tree Number(s): N05.715.350.350.375, N06.850.490.734.750
+Entry Terms:
+    Effect, Healthy Worker
+    Effects, Healthy Worker
+    Healthy Worker Effects
+
+    All MeSH Categories
+        Health Care Category
+            Health Care Quality, Access, and Evaluation
+                Quality of Health Care
+                    Epidemiologic Factors
+                        Effect Modifier, Epidemiologic
+                            Healthy Worker Effect
+
+    All MeSH Categories
+        Health Care Category
+            Environment and Public Health
+                Public Health
+                    Epidemiologic Factors
+                        Effect Modifier, Epidemiologic
+                            Healthy Worker Effect"
+non-specific interstitial pneumonia,D017563,"Lung Diseases, Interstitial","A diverse group of lung diseases that affect the lung parenchyma. They are characterized by an initial inflammation of PULMONARY ALVEOLI that extends to the
+interstitium and beyond leading to diffuse PULMONARY FIBROSIS. Interstitial lung 
+diseases are classified by their etiology (known or unknown causes), and
+radiological-pathological features.
+Year introduced: 1994"
+idiopathic pulmonary fibrosis,D054990,Idiopathic Pulmonary Fibrosis,"A common interstitial lung disease of unknown etiology, usually occurring between 50-70 years of age. Clinically, it is characterized by an insidious onset of
+breathlessness with exertion and a nonproductive cough, leading to progressive
+DYSPNEA. Pathological features show scant interstitial inflammation, patchy
+collagen fibrosis, prominent fibroblast proliferation foci, and microscopic
+honeycomb change.
+Year introduced: 2009"
+"non-small cell lung cancer, carcinoma",D002289,"Carcinoma, Non-Small-Cell Lung","A heterogeneous aggregate of at least three distinct histological types of lung cancer, including SQUAMOUS CELL CARCINOMA; ADENOCARCINOMA; and LARGE CELL
+CARCINOMA. They are dealt with collectively because of their shared treatment
+strategy.
+Year introduced: 1994"

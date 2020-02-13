@@ -1,5 +1,5 @@
 ---
-title: "Building the vocDB database"
+title: "Building the reference annotation tables for the ptairMS package"
 author: "Camille Roquencourt, Paul Zheng, Pierrick Roger and Etienne A. Thévenot"
 date: "`r doc_date()`"
 
@@ -27,7 +27,10 @@ knitr::opts_chunk$set(fig.width = 8,
 
 # Table of element masses
 
-Source: [http://www.ciaaw.org/atomic-masses.htm](http://www.ciaaw.org/atomic-masses.htm)
+
+## Atomic weights (CIAAW)
+
+The atomic masses were retrieved from the Commission on Isotopic Abundances and Atomic Weights (CIAAW; [http://www.ciaaw.org/atomic-masses.htm](http://www.ciaaw.org/atomic-masses.htm)).
 
 ```{r}
 ciaaw.df <- utils::read.table(system.file("extdata/ciaaw.tsv",
@@ -60,6 +63,12 @@ element.df[, "mass"] <- vapply(element.df[, "mass"],
                                  
                                },FUN.VALUE = 1.01)
 
+# moving carbon at the beginning of the element list (to follow the order of
+# elements in a molecular formula)
+element.df <- rbind.data.frame(element.df[element.df[, "element"] == "carbon", ],
+                               element.df[element.df[, "element"] != "carbon", ],
+                               stringsAsFactors = FALSE)
+
 # adding supplementary information about electron, proton, and neutron
 supp.df <- element.df[c(1,2,3), ]
 supp.df[, "Z"] <- rep(NA_integer_, 3)
@@ -73,7 +82,14 @@ element.df <- rbind.data.frame(supp.df,
                                stringsAsFactors = FALSE)
 ```
 
-Saving (not run)
+## Displaying
+
+```{r}
+knitr::kable(element.df)
+```
+
+
+## Saving (not run)
 
 ```{r, eval = FALSE}
 utils::write.table(element.df,
@@ -85,9 +101,237 @@ utils::write.table(element.df,
 
 # vocDB
 
-Source: [[@de_lacy_costello_review_2014]](https://doi.org/10.1088/1752-7155/8/1/014001)
+The current version of the *vocDB* table used for annotation within the *ptairMS* package is based on the [Human Breathomics Database](https://hbdb.cmdm.tw)  [[@kuo_human_2020]](https://doi.org/10.1093/database/baz139)[[@de_lacy_costello_review_2014]](https://doi.org/10.1088/1752-7155/8/1/014001) as described below.
+
+List of all compounds available in HBDB:
 
 ```{r}
+hbdb_dir.c <- system.file("extdata/hbdb/compounds", package = "vocDB")
+
+cpds_files.vc <- list.files(file.path(hbdb_dir.c, "export_refs"),
+                            full.names = TRUE)
+
+cpds_cids.vc <- gsub(".csv", "",
+                     gsub("cid_", "",
+                          gsub("pubchem_", "",
+                               gsub("-references-2.csv", "",
+                                    gsub("-references-3.csv", "",
+                                         gsub("-references.csv", "",
+                                              basename(cpds_files.vc)))))))
+names(cpds_files.vc) <- cpds_cids.vc
+
+cids_dup.vl <- duplicated(cpds_cids.vc)
+cpds_cids.vc <- cpds_cids.vc[!cids_dup.vl] # no information in the -reference-2 or -3 files
+cpds_files.vc <- cpds_files.vc[!cids_dup.vl]
+
+stopifnot(length(cpds_cids.vc) == 909)
+
+message("Number of compounds in the Human Breathomics Database: ",
+        length(cpds_cids.vc))
+```
+
+## Chemistry (PubChem)
+
+Querying PubChem for chemical informations about the compound by using the *webchem* package [[@szocs_webchem_2015]](https://doi.org/10.5281/zenodo.33823):
+
+```{r}
+pchem_fields.vc <- c('CID',
+                     'MolecularFormula',
+                     'InChI',
+                     'InChIKey',
+                     'IUPACName',
+                     'MonoisotopicMass')
+
+pchem_info.mc <- matrix("",
+                        nrow = length(cpds_cids.vc),
+                        ncol = length(pchem_fields.vc),
+                        dimnames = list(cpds_cids.vc, pchem_fields.vc))
+
+for (i in 1:nrow(pchem_info.mc)) {
+  pchem_info.vc <- unlist(webchem::pc_prop(cpds_cids.vc[i],
+                                         properties = pchem_fields.vc[-1]))
+  if (length(pchem_info.vc) == ncol(pchem_info.mc))
+    pchem_info.mc[i, names(pchem_info.vc)] <- pchem_info.vc
+}
+pchem_info.df <- as.data.frame(pchem_info.mc, stringsAsFactors = FALSE)
+
+pchem_info.df[, "MonoisotopicMass"] <- as.numeric(pchem_info.df[,
+                                                              "MonoisotopicMass"])
+pchem_info.df <- pchem_info.df[order(pchem_info.df[, "MonoisotopicMass"],
+                                     pchem_info.df[, "MolecularFormula"],
+                                     pchem_info.df[, "InChI"]), ]
+
+# discarding ions
+cpds_ions.vc <- c(grep("+", pchem_info.df[, "MolecularFormula"],
+                       fixed = T, value = T),
+                  grep("-", pchem_info.df[, "MolecularFormula"],
+                       fixed = T, value = T))
+pchem_info.df <- pchem_info.df[!(pchem_info.df[, "MolecularFormula"] %in% cpds_ions.vc), ]
+
+```
+
+* Creating the vocDB table ('mass_Hplus', 'formula_Hplus', 'formula')
+
+```{r}
+cpds_formula.vc <- unique(pchem_info.df[, "MolecularFormula"])
+cpds_formula.vc <- cpds_formula.vc[cpds_formula.vc != ""]
+
+protonized_mass.vn <- ptairMS::formula2mass(cpds_formula.vc)
+
+vocdb.df <- data.frame(mass_Hplus = protonized_mass.vn,
+                       formula_Hplus = names(protonized_mass.vn),
+                       formula = cpds_formula.vc,
+                       stringsAsFactors = FALSE)
+
+```
+
+* Adding the supplementary PubChem info ('mass_monoiso', 'name_iupac', 'pubchem_cid', 'inchi', 'inchikey')
+
+```{r}
+supp_pchem.df <- t(sapply(vocdb.df[, "formula"],
+       function(formula.c) {
+         
+  cpds.vi <- which(pchem_info.df[, "MolecularFormula"] == formula.c)
+  cpds.vi <- cpds.vi[!duplicated(pchem_info.df[cpds.vi, "CID"])]
+  
+  stopifnot(!any(duplicated(pchem_info.df[cpds.vi, "CID"])))
+  
+  cpds_monoisotopic.n <- unique(pchem_info.df[cpds.vi, "MonoisotopicMass"])
+  stopifnot(length(cpds_monoisotopic.n) == 1)
+  
+  c(mass_monoiso = cpds_monoisotopic.n,
+    name_iupac = paste(pchem_info.df[cpds.vi, "IUPACName"], collapse = "|"),
+    pubchem_cid = paste(pchem_info.df[cpds.vi, "CID"], collapse = "|"),
+    inchi = paste(pchem_info.df[cpds.vi, "InChI"], collapse = "|"),
+    inchikey = paste(pchem_info.df[cpds.vi, "InChIKey"], collapse = "|"))
+}))
+
+vocdb.df <- data.frame(vocdb.df,
+                       as.data.frame(supp_pchem.df, stringsAsFactors = FALSE))
+```
+
+## References (HBDB)
+
+* Adding the reference information from the HBDB ('ref_year', 'ref_pmid')
+
+```{r message=FALSE}
+cpds_refs.mc <- t(sapply(cpds_cids.vc,
+                            function(cpds_cid.c) {
+                              print(cpds_cid.c)
+                              cpds_cid.tbl <- readr::read_csv(cpds_files.vc[cpds_cid.c])
+                              c(ref_year = paste(cpds_cid.tbl$year, collapse = "_"),
+                                ref_pmid = paste(cpds_cid.tbl$pmid, collapse = "_"))
+                            }))
+
+supp_refs.mc <- t(sapply(vocdb.df[, "pubchem_cid"],
+                            function(pchem_cid.c) {
+                              pchem_split.vc <- unlist(strsplit(pchem_cid.c,
+                                                                  split = "|", fixed = TRUE))
+                              ref.mc <- t(sapply(pchem_split.vc,
+                                                     function(pchem_split.c) {
+                                                       ref.i <- which(rownames(cpds_refs.mc) == pchem_split.c)
+                                                       stopifnot(length(ref.i) <= 1)
+                                                       if (!length(ref.i)) {
+                                                         return(c("", ""))
+                                                       } else {
+                                                         return(cpds_refs.mc[ref.i, ])
+                                                       }
+                                                     }, USE.NAMES = FALSE))
+                              if (all(ref.mc[, 1] == "")) {
+                                return(c("", ""))
+                              } else {
+                                ref.mc <- ref.mc[!duplicated(ref.mc[, "ref_pmid"]), , drop = FALSE]
+                                return(c(paste(ref.mc[, 1], collapse = "|"),
+                                         paste(ref.mc[, 2], collapse = "|")))
+                              }
+                            }))
+colnames(supp_refs.mc) <- c("ref_year", "ref_pmid")
+
+vocdb.df <- data.frame(vocdb.df,
+                       as.data.frame(supp_refs.mc, stringsAsFactors = FALSE))
+
+```
+
+Note: additional reference information (e.g., DOI) could be retrieved from PubMed with the *easyPubMed* package [[@fantini_easypubmed_2019]](https://CRAN.R-project.org/package=easyPubMed).
+
+```{r, eval = FALSE}
+cpds_pmids.vc <- unique(unlist(sapply(vocdb.df[, "ref_pmid"],
+                                      function(x) unlist(strsplit(x, split = "_")))))
+cpds_pmids.vc <- sort(cpds_pmids.vc)
+doi.vc <- character(length(cpds_pmids.vc))
+for (i in 1:length(cpds_pmids.vc)) { # easyPubMed package
+  print(i)
+  article.df <- easyPubMed::article_to_df(easyPubMed::fetch_pubmed_data(easyPubMed::get_pubmed_ids(cpds_pmids.vc[i])))[1, ]
+  doi.vc[i] <- paste0(article.df[, "lastname"], article.df[, "year"], "_",
+                      gsub(" ", "", article.df[, "jabbrv"]), ":",
+                      article.df[, "doi"])
+
+}
+```
+
+## Diseases (HBDB)
+
+```{r message=FALSE}
+disease_files.vc <- list.files(file.path(hbdb_dir.c, "export_diseases"),
+                               full.names = TRUE)
+
+disease_cids.vc <- gsub("pubchem_cid_", "",
+                        gsub("-diseases.csv", "",
+                             basename(disease_files.vc)))
+names(disease_files.vc) <- disease_cids.vc
+
+
+disease_cids.mc <- t(sapply(disease_cids.vc,
+                            function(disease_cid.c) {
+                              disease_cid.df <- read.table(disease_files.vc[disease_cid.c],
+                                                           header = TRUE, sep = ",")
+                              c(disease = paste(disease_cid.df[, "name"], collapse = "_"),
+                                meshid = paste(disease_cid.df[, "meshid"], collapse = "_"))
+                            }))
+
+supp_disease.mc <- t(sapply(vocdb.df[, "pubchem_cid"],
+                            function(pchem_cid.c) {
+                              pchem_split.vc <- unlist(strsplit(pchem_cid.c,
+                                                                split = "|", fixed = TRUE))
+                              disease.mc <- t(sapply(pchem_split.vc,
+                                                     function(pchem_split.c) {
+                                                       disease.i <- which(rownames(disease_cids.mc) == pchem_split.c)
+                                                       stopifnot(length(disease.i) <= 1)
+                                                       if (!length(disease.i)) {
+                                                         return(c("", ""))
+                                                       } else {
+                                                         return(disease_cids.mc[disease.i, ])
+                                                       }
+                                                     }, USE.NAMES = FALSE))
+                              if (all(disease.mc[, 1] == "")) {
+                                return(c("", ""))
+                              } else {
+                                return(c(paste(disease.mc[, 1], collapse = "|"),
+                                         paste(disease.mc[, 2], collapse = "|")))
+                              }
+                            }))
+colnames(supp_disease.mc) <- c("disease_name", "disease_meshid")
+
+vocdb.df <- data.frame(vocdb.df,
+                       as.data.frame(supp_disease.mc, stringsAsFactors = FALSE))
+```
+
+## Ordering by mass
+
+```{r}
+vocdb.df <- vocdb.df[order(vocdb.df[, "mass_Hplus"]), ]
+```
+
+## Saving (not run)
+
+```{r, eval = FALSE}
+write.table(vocdb.df, "vocDB.tsv", row.names = FALSE, sep = "\t")
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+# Source: [[@de_lacy_costello_review_2014]](https://doi.org/10.1088/1752-7155/8/1/014001)
 # loading the de Lacy Costello database (2014)
 # [CAS have been converted to CHEBIs by Pierrick Roger-Mele with the 'biodb' package]
 costello.df <- utils::read.table(file = system.file("extdata/de_Lacy_Costello_2014.tsv",
@@ -279,11 +523,8 @@ vocDB.df <- costello.df[, c("mz_Hplus",
                             "chebi.name",
                             "inchi",
                             "kegg.compound.id")]
-```
 
-Saving (not run)
-
-```{r}
+## Saving (not run)
 utils::write.table(vocDB.df,
                    file = "vocDB.tsv",
                    quote = FALSE,

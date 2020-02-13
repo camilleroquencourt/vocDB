@@ -1,0 +1,20 @@
+name,meshid,meshname,scope
+Acute Mountain Sickness,D000532,Altitude Sickness,Multiple symptoms associated with reduced oxygen at high ALTITUDE. Year introduced: 1991(1975)
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+bronchiectasis,D001987,Bronchiectasis,Persistent abnormal dilatation of the bronchi.
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+occupational respiratory diseases,D012120,Respiration Disorders,"Diseases of the respiratory system in general or unspecified or for a specific respiratory disease not available.
+Year introduced: 1977"
+welding,D014896,Welding,"Joining metal pieces or parts together by melting the adjoining surfaces with heat, using a heat source such as a blowtorch or electric arc. The melted
+surfaces are then pressed together by hammering."
+occupational asthma (OA),D059366,"Asthma, Occupational","Asthma attacks caused, triggered, or exacerbated by OCCUPATIONAL EXPOSURE. Year introduced: 2012"

@@ -1,0 +1,75 @@
+name,meshid,meshname,scope
+asbestosis,D001195,Asbestosis,"A form of pneumoconiosis caused by inhalation of asbestos fibers which elicit potent inflammatory responses in the parenchyma of the lung. The disease is
+characterized by interstitial fibrosis of the lung, varying from scattered sites 
+to extensive scarring of the alveolar interstitium."
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+asthmatic children,D002648,Child,"A person 6 to 12 years of age. An individual 2 to 5 years old is CHILD, PRESCHOOL."
+occupational asthma (OA),D059366,"Asthma, Occupational","Asthma attacks caused, triggered, or exacerbated by OCCUPATIONAL EXPOSURE. Year introduced: 2012"
+status asthmaticus,D013224,Status Asthmaticus,"A sudden intense and continuous aggravation of a state of asthma, marked by dyspnea to the point of exhaustion and collapse and not responding to the usual
+therapeutic efforts.
+Year introduced: 1991(1985)"
+chronic cough,D002908,Chronic Disease,"Diseases which have one or more of the following characteristics: they are permanent, leave residual disability, are caused by nonreversible pathological
+alteration, require special training of the patient for rehabilitation, or may be
+expected to require a long period of supervision, observation, or care.
+(Dictionary of Health Services Management, 2d ed)"
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+upper and lower airway inflammation in Atopic dermatitis (AD),D003876,"Dermatitis, Atopic","A chronic inflammatory genetically determined disease of the skin marked by increased ability to form reagin (IgE), with increased susceptibility to allergic
+rhinitis and asthma, and hereditary disposition to a lowered threshold for
+pruritus. It is manifested by lichenification, excoriation, and crusting, mainly 
+on the flexural surfaces of the elbow and knee. In infants it is known as
+infantile eczema."
+Heart Failure,D006333,Heart Failure,"A heterogeneous condition in which the heart is unable to pump out sufficient blood to meet the metabolic need of the body. Heart failure can be caused by
+structural defects, functional abnormalities (VENTRICULAR DYSFUNCTION), or a
+sudden overload beyond its capacity. Chronic heart failure is more common than
+acute heart failure which results from sudden insult to cardiac function, such as
+MYOCARDIAL INFARCTION.
+Year introduced: 2008 (1966)"
+primary ciliary dyskinesia,D007619,Kartagener Syndrome,"An autosomal recessive disorder characterized by a triad of DEXTROCARDIA; INFERTILITY; and SINUSITIS. The syndrome is caused by mutations of DYNEIN genes
+encoding motility proteins which are components of sperm tails, and CILIA in the 
+respiratory and the reproductive tracts.
+Year introduced: 2002 (1963)"
+Cough,D003371,Cough,"A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation. It is a protective response that serves to clear
+the trachea, bronchi, and/or lungs of irritants and secretions, or to prevent
+aspiration of foreign materials into the lungs."
+"non-small cell lung cancer, lung neoplasms",D008175,Lung Neoplasms,Tumors or cancer of the LUNG.
+Pulmonary Lobectomy,D011013,Pneumonectomy,The excision of lung tissue including partial or total lung lobectomy.
+occupational respiratory diseases,D012120,Respiration Disorders,"Diseases of the respiratory system in general or unspecified or for a specific respiratory disease not available.
+Year introduced: 1977"
+allergic rhinitis with asthma,D012221,"Rhinitis, Allergic, Perennial","Inflammation of the mucous membrane of the nose similar to that found in hay fever except that symptoms persist throughout the year. The causes are usually
+air-borne allergens, particularly dusts, feathers, molds, animal fur, etc.
+Year introduced: 1980"
+sarcoidosis,D012507,Sarcoidosis,"An idiopathic systemic inflammatory granulomatous disorder comprised of epithelioid and multinucleated giant cells with little necrosis. It usually
+invades the lungs with fibrosis and may also involve lymph nodes, skin, liver,
+spleen, eyes, phalangeal bones, and parotid glands.
+Year introduced: PSEUDOTUBERCULOSIS use SARCOIDOSIS 1963-1992"
+systemic sclerosis,D012595,"Scleroderma, Systemic","A chronic multi-system disorder of CONNECTIVE TISSUE. It is characterized by SCLEROSIS in the SKIN, the LUNGS, the HEART, the GASTROINTESTINAL TRACT, the
+KIDNEYS, and the MUSCULOSKELETAL SYSTEM. Other important features include
+diseased small BLOOD VESSELS and AUTOANTIBODIES. The disorder is named for its
+most prominent feature (hard skin), and classified into subsets by the extent of 
+skin thickening: LIMITED SCLERODERMA and DIFFUSE SCLERODERMA.
+Year introduced: 1971"
+Silicotics,D012829,Silicosis,"A form of pneumoconiosis resulting from inhalation of dust containing crystalline form of SILICON DIOXIDE, usually in the form of quartz. Amorphous silica is
+relatively nontoxic."
+Smoke,D012906,Smoke, Year introduced: 1974(1971)
+obstructive sleep apnea,D020181,"Sleep Apnea, Obstructive","A disorder characterized by recurrent apneas during sleep despite persistent respiratory efforts. It is due to upper airway obstruction. The respiratory
+pauses may induce HYPERCAPNIA or HYPOXIA. Cardiac arrhythmias and elevation of
+systemic and pulmonary arterial pressures may occur. Frequent partial arousals
+occur throughout sleep, resulting in relative SLEEP DEPRIVATION and daytime
+tiredness. Associated conditions include OBESITY; ACROMEGALY; MYXEDEMA;
+micrognathia; MYOTONIC DYSTROPHY; adenotonsilar dystrophy; and NEUROMUSCULAR
+DISEASES. (From Adams et al., Principles of Neurology, 6th ed, p395)
+Year introduced: 2000"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+"non-small cell lung cancer, carcinoma",D002289,"Carcinoma, Non-Small-Cell Lung","A heterogeneous aggregate of at least three distinct histological types of lung cancer, including SQUAMOUS CELL CARCINOMA; ADENOCARCINOMA; and LARGE CELL
+CARCINOMA. They are dealt with collectively because of their shared treatment
+strategy.
+Year introduced: 1994"

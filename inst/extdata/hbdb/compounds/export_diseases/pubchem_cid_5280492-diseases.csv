@@ -1,0 +1,49 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+cystic fibrosis,D003550,Cystic Fibrosis,"An autosomal recessive genetic disease of the EXOCRINE GLANDS. It is caused by mutations in the gene encoding the CYSTIC FIBROSIS TRANSMEMBRANE CONDUCTANCE
+REGULATOR expressed in several organs including the LUNG, the PANCREAS, the
+BILIARY SYSTEM, and the SWEAT GLANDS. Cystic fibrosis is characterized by
+epithelial secretory dysfunction associated with ductal obstruction resulting in 
+AIRWAY OBSTRUCTION; chronic RESPIRATORY INFECTIONS; PANCREATIC INSUFFICIENCY;
+maldigestion; salt depletion; and HEAT PROSTRATION.
+Year introduced: 1967"
+upper and lower airway inflammation in Atopic dermatitis (AD),D003876,"Dermatitis, Atopic","A chronic inflammatory genetically determined disease of the skin marked by increased ability to form reagin (IgE), with increased susceptibility to allergic
+rhinitis and asthma, and hereditary disposition to a lowered threshold for
+pruritus. It is manifested by lichenification, excoriation, and crusting, mainly 
+on the flexural surfaces of the elbow and knee. In infants it is known as
+infantile eczema."
+seasonal allergic rhinitis (SAR),D006255,"Rhinitis, Allergic, Seasonal","Allergic rhinitis that occurs at the same time every year. It is characterized by acute CONJUNCTIVITIS with lacrimation and ITCHING, and regarded as an allergic
+condition triggered by specific ALLERGENS.
+Year introduced: 2006 (1963)"
+aspirin-sensitive asthma,D055963,"Asthma, Aspirin-Induced","Asthmatic adverse reaction (e.g., BRONCHOCONSTRICTION) to conventional NSAIDS including aspirin use.
+Year introduced: 2010"
+"non-small cell lung cancer, lung neoplasms",D008175,Lung Neoplasms,Tumors or cancer of the LUNG.
+Pneumoconiosis,D011009,Pneumoconiosis,"A diffuse parenchymal lung disease caused by inhalation of dust and by tissue reaction to their presence. These inorganic, organic, particulate, or vaporized
+matters usually are inhaled by workers in their occupational environment, leading
+to the various forms (ASBESTOSIS; BYSSINOSIS; and others). Similar air pollution 
+can also have deleterious effects on the general population.
+Year introduced: 1966"
+"non-small cell lung cancer, carcinoma",D002289,"Carcinoma, Non-Small-Cell Lung","A heterogeneous aggregate of at least three distinct histological types of lung cancer, including SQUAMOUS CELL CARCINOMA; ADENOCARCINOMA; and LARGE CELL
+CARCINOMA. They are dealt with collectively because of their shared treatment
+strategy.
+Year introduced: 1994"
+community-acquired pneumonia,D011014,Pneumonia,Infection of the lung often accompanied by inflammation. Year introduced: 1963
+wheezing,D012135,Respiratory Sounds,"Noises, normal and abnormal, heard on auscultation over any part of the RESPIRATORY TRACT.
+Year introduced: 1980"
+rhinitis,D012220,Rhinitis,"Inflammation of the NASAL MUCOSA, the mucous membrane lining the NASAL CAVITIES."
+sarcoidosis,D012507,Sarcoidosis,"An idiopathic systemic inflammatory granulomatous disorder comprised of epithelioid and multinucleated giant cells with little necrosis. It usually
+invades the lungs with fibrosis and may also involve lymph nodes, skin, liver,
+spleen, eyes, phalangeal bones, and parotid glands.
+Year introduced: PSEUDOTUBERCULOSIS use SARCOIDOSIS 1963-1992"
+sleep-disordered breathing (SDB) ,D012891,Sleep Apnea Syndromes,"Disorders characterized by multiple cessations of respirations during sleep that  induce partial arousals and interfere with the maintenance of sleep. Sleep apnea 
+syndromes are divided into central (see SLEEP APNEA, CENTRAL), obstructive (see
+SLEEP APNEA, OBSTRUCTIVE), and mixed central-obstructive types.
+Year introduced: 1980"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+community-acquired pneumonia,D017714,Community-Acquired Infections,"Any infection acquired in the community, that is, contrasted with those acquired  in a health care facility (CROSS INFECTION). An infection would be classified as 
+community-acquired if the patient had not recently been in a health care facility
+or been in contact with someone who had been recently in a health care facility.
+Year introduced: 1994"

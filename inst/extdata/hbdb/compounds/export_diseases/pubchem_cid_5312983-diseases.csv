@@ -1,0 +1,12 @@
+name,meshid,meshname,scope
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+Churg-Strauss syndrome,D015267,Churg-Strauss Syndrome,"Widespread necrotizing angiitis with granulomas. Pulmonary involvement is frequent. Asthma or other respiratory infection may precede evidence of
+vasculitis. Eosinophilia and lung involvement differentiate this disease from
+POLYARTERITIS NODOSA.
+Year introduced: 1989"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"
+aspirin-sensitive asthma,D055963,"Asthma, Aspirin-Induced","Asthmatic adverse reaction (e.g., BRONCHOCONSTRICTION) to conventional NSAIDS including aspirin use.
+Year introduced: 2010"

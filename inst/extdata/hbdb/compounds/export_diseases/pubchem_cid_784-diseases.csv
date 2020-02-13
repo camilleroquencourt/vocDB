@@ -1,0 +1,42 @@
+name,meshid,meshname,scope
+alcohol abuse,D000437,Alcoholism,"A primary, chronic disease with genetic, psychosocial, and environmental factors  influencing its development and manifestations. The disease is often progressive 
+and fatal. It is characterized by impaired control over drinking, preoccupation
+with the drug alcohol, use of alcohol despite adverse consequences, and
+distortions in thinking, most notably denial. Each of these symptoms may be
+continuous or periodic. (Morse and Flavin for the Joint Commission of the
+National Council on Alcoholism and Drug Dependence and the American Society of
+Addiction Medicine to Study the Definition and Criteria for the Diagnosis of
+Alcoholism: in JAMA 1992;268:1012-4)"
+Acute Mountain Sickness,D000532,Altitude Sickness,Multiple symptoms associated with reduced oxygen at high ALTITUDE. Year introduced: 1991(1975)
+asthma,D001249,Asthma,"A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and
+intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of 
+airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL)."
+primary breast cancer,D001943,Breast Neoplasms,Tumors or cancer of the human BREAST.
+bronchiectasis,D001987,Bronchiectasis,Persistent abnormal dilatation of the bronchi.
+upper and lower airway inflammation in Atopic dermatitis (AD),D003876,"Dermatitis, Atopic","A chronic inflammatory genetically determined disease of the skin marked by increased ability to form reagin (IgE), with increased susceptibility to allergic
+rhinitis and asthma, and hereditary disposition to a lowered threshold for
+pruritus. It is manifested by lichenification, excoriation, and crusting, mainly 
+on the flexural surfaces of the elbow and knee. In infants it is known as
+infantile eczema."
+feverish,D005334,Fever,"An abnormal elevation of body temperature, usually as a result of a pathologic process."
+dialysis,D006435,"","Therapy for the insufficient cleansing of the BLOOD by the kidneys based on dialysis and including hemodialysis, PERITONEAL DIALYSIS, and HEMODIAFILTRATION.
+Year introduced: 2001(1967)"
+obstructive lung disease,D008173,"Lung Diseases, Obstructive","Any disorder marked by obstruction of conducting airways of the lung. AIRWAY OBSTRUCTION may be acute, chronic, intermittent, or persistent.
+Year introduced: 1972(1971)"
+Pulmonary Lobectomy,D011013,Pneumonectomy,The excision of lung tissue including partial or total lung lobectomy.
+allergic rhinitis with asthma,D012221,"Rhinitis, Allergic, Perennial","Inflammation of the mucous membrane of the nose similar to that found in hay fever except that symptoms persist throughout the year. The causes are usually
+air-borne allergens, particularly dusts, feathers, molds, animal fur, etc.
+Year introduced: 1980"
+Smoke,D012906,Smoke, Year introduced: 1974(1971)
+welding,D014896,Welding,"Joining metal pieces or parts together by melting the adjoining surfaces with heat, using a heat source such as a blowtorch or electric arc. The melted
+surfaces are then pressed together by hammering."
+obstructive sleep apnea,D020181,"Sleep Apnea, Obstructive","A disorder characterized by recurrent apneas during sleep despite persistent respiratory efforts. It is due to upper airway obstruction. The respiratory
+pauses may induce HYPERCAPNIA or HYPOXIA. Cardiac arrhythmias and elevation of
+systemic and pulmonary arterial pressures may occur. Frequent partial arousals
+occur throughout sleep, resulting in relative SLEEP DEPRIVATION and daytime
+tiredness. Associated conditions include OBESITY; ACROMEGALY; MYXEDEMA;
+micrognathia; MYOTONIC DYSTROPHY; adenotonsilar dystrophy; and NEUROMUSCULAR
+DISEASES. (From Adams et al., Principles of Neurology, 6th ed, p395)
+Year introduced: 2000"
+chronic obstructive pulmonary disease (COPD),D029424,"Pulmonary Disease, Chronic Obstructive","A disease of chronic diffuse irreversible airflow obstruction. Subcategories of COPD include CHRONIC BRONCHITIS and PULMONARY EMPHYSEMA.
+Year introduced: 2002"

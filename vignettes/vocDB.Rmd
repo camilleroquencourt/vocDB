@@ -25,7 +25,7 @@ knitr::opts_chunk$set(fig.width = 8,
                       warnings = FALSE)
 ```
 
-# Table of element masses
+# Table of atomic weights
 
 
 ## Atomic weights (CIAAW)
@@ -40,9 +40,9 @@ ciaaw.df <- utils::read.table(system.file("extdata/ciaaw.tsv",
                               sep = "\t",
                               stringsAsFactors = FALSE)
 
-element.df <- ciaaw.df[!is.na(ciaaw.df[, "Z"]), ]
+atomic_weight.df <- ciaaw.df[!is.na(ciaaw.df[, "Z"]), ]
 
-element.df[, "mass"] <- vapply(element.df[, "mass"],
+atomic_weight.df[, "mass"] <- vapply(atomic_weight.df[, "mass"],
                                function(mass.c) {
                                  
                                  if (mass.c == " 12(exact") {
@@ -63,37 +63,38 @@ element.df[, "mass"] <- vapply(element.df[, "mass"],
                                  
                                },FUN.VALUE = 1.01)
 
-# moving carbon at the beginning of the element list (to follow the order of
-# elements in a molecular formula)
-element.df <- rbind.data.frame(element.df[element.df[, "element"] == "carbon", ],
-                               element.df[element.df[, "element"] != "carbon", ],
-                               stringsAsFactors = FALSE)
+# moving carbon at the beginning of the atomic_weight list (to follow the order of
+# atoms in a molecular formula)
+carbon.vl <- atomic_weight.df[, "element"] == "carbon"
+atomic_weight.df <- rbind.data.frame(atomic_weight.df[carbon.vl, ],
+                                     atomic_weight.df[!carbon.vl, ],
+                                     stringsAsFactors = FALSE)
 
 # adding supplementary information about electron, proton, and neutron
-supp.df <- element.df[c(1,2,3), ]
+supp.df <- atomic_weight.df[c(1,2,3), ]
 supp.df[, "Z"] <- rep(NA_integer_, 3)
 supp.df[, "symbol"] <- c("electron", "proton", "neutron")
 supp.df[, "element"] <- rep("", 3)
 supp.df[, "A"] <- rep("", 3)
 supp.df[, "mass"] <- c(0.000548, 1.0072765, 1.008665549)
 
-element.df <- rbind.data.frame(supp.df,
-                               element.df,
+atomic_weight.df <- rbind.data.frame(supp.df,
+                               atomic_weight.df,
                                stringsAsFactors = FALSE)
 ```
 
 ## Displaying
 
 ```{r}
-knitr::kable(element.df)
+knitr::kable(atomic_weight.df)
 ```
 
 
 ## Saving (not run)
 
 ```{r, eval = FALSE}
-utils::write.table(element.df,
-                   file = "elements.tsv",
+utils::write.table(atomic_weight.df,
+                   file = "atomic_weights.tsv",
                    row.names = FALSE,
                    sep = "\t")
 ```
@@ -126,7 +127,7 @@ cpds_files.vc <- cpds_files.vc[!cids_dup.vl]
 
 stopifnot(length(cpds_cids.vc) == 909)
 
-message("Number of compounds in the Human Breathomics Database: ",
+message("Number of compounds from the Human Breathomics Database: ",
         length(cpds_cids.vc))
 ```
 
@@ -170,16 +171,16 @@ pchem_info.df <- pchem_info.df[!(pchem_info.df[, "MolecularFormula"] %in% cpds_i
 
 ```
 
-* Creating the vocDB table ('mass_Hplus', 'formula_Hplus', 'formula')
+* Creating the vocDB table ('ion_mass', 'ion_formula', 'formula')
 
 ```{r}
 cpds_formula.vc <- unique(pchem_info.df[, "MolecularFormula"])
 cpds_formula.vc <- cpds_formula.vc[cpds_formula.vc != ""]
 
-protonized_mass.vn <- ptairMS::formula2mass(cpds_formula.vc)
+ion_mass.vn <- ptairMS::formula2mass(cpds_formula.vc)
 
-vocdb.df <- data.frame(mass_Hplus = protonized_mass.vn,
-                       formula_Hplus = names(protonized_mass.vn),
+vocdb.df <- data.frame(ion_mass = ion_mass.vn,
+                       ion_formula = names(ion_mass.vn),
                        formula = cpds_formula.vc,
                        stringsAsFactors = FALSE)
 
@@ -217,7 +218,6 @@ vocdb.df <- data.frame(vocdb.df,
 ```{r message=FALSE}
 cpds_refs.mc <- t(sapply(cpds_cids.vc,
                             function(cpds_cid.c) {
-                              print(cpds_cid.c)
                               cpds_cid.tbl <- readr::read_csv(cpds_files.vc[cpds_cid.c])
                               c(ref_year = paste(cpds_cid.tbl$year, collapse = "_"),
                                 ref_pmid = paste(cpds_cid.tbl$pmid, collapse = "_"))
@@ -316,10 +316,10 @@ vocdb.df <- data.frame(vocdb.df,
                        as.data.frame(supp_disease.mc, stringsAsFactors = FALSE))
 ```
 
-## Ordering by mass
+## Ordering by increasing mass
 
 ```{r}
-vocdb.df <- vocdb.df[order(vocdb.df[, "mass_Hplus"]), ]
+vocdb.df <- vocdb.df[order(vocdb.df[, "ion_mass"]), ]
 ```
 
 ## Saving (not run)
@@ -392,15 +392,15 @@ costello.df[add_chebi.vi, "chebi.monoisotopic.mass"] <- chebi.df[, "monoisotopic
 costello.df[add_chebi.vi, "chebi.name"] <- chebi.df[, "name"]
 costello.df[add_chebi.vi, "chebi.inchi"] <- chebi.df[, "inchi"]
 
-## getting mz_Hplus and formula_Hplus for those new ChEBI
+## getting ion_mass and ion_formula for those new ChEBI
 mz_formula.vn <- ptairMS::formula2mass(chebi.df[, "formula"],
-                                       protonizeL = TRUE)
-costello.df[add_chebi.vi, "mz_Hplus"] <- mz_formula.vn
-costello.df[add_chebi.vi, "formula_Hplus"] <- names(mz_formula.vn)
+                                       protonate.l = TRUE)
+costello.df[add_chebi.vi, "ion_mass"] <- mz_formula.vn
+costello.df[add_chebi.vi, "ion_formula"] <- names(mz_formula.vn)
 
 
 # removing all rows (molecules) without CAS converted ids (ie unkown mz and formula)
-costello.df <- costello.df[!is.na(costello.df[, "mz_Hplus"]), ]
+costello.df <- costello.df[!is.na(costello.df[, "ion_mass"]), ]
 
 message("Number of annotations with converted CAS ids: ", nrow(costello.df))
 
@@ -414,7 +414,7 @@ for (k in 1:nrow(costello.df)) {
   
   if (isomer.vi[k] == 0) {
     
-    isomer.vi[which(costello.df[, "formula_Hplus"] == costello.df[k, "formula_Hplus"])] <- isomer.i
+    isomer.vi[which(costello.df[, "ion_formula"] == costello.df[k, "ion_formula"])] <- isomer.i
     isomer.i <- isomer.i + 1
     
   }
@@ -428,7 +428,7 @@ cas.vi <- suppressWarnings(as.numeric(sapply(costello.df[, "cas.number"],
                                                gsub("-", "", cas.c)
                                              })))
 
-costello.df <- costello.df[order(costello.df[, "mz_Hplus"],
+costello.df <- costello.df[order(costello.df[, "ion_mass"],
                                  cas.vi,
                                  costello.df[, "compound.name"]), ]
 
@@ -443,8 +443,8 @@ while (length(costello.remaining.vi) > 0) {
   
   if (length(costello.selecting.vi) > 1) {
     
-    for (colname.c in setdiff(colnames(costello.df), c("mz_Hplus",
-                                                       "formula_Hplus",
+    for (colname.c in setdiff(colnames(costello.df), c("ion_mass",
+                                                       "ion_formula",
                                                        "reference",
                                                        "chebi.formula",
                                                        "chebi.monoisotopic.mass"))) {
@@ -479,8 +479,8 @@ costello.df[, "isomer.group"] <- NULL
 summary.vc <- apply(costello.df, 1,
                     function(voc.vc) {
                       
-                      mz.n <- floor(as.numeric(voc.vc["mz_Hplus"]) * 1000)/1000
-                      formula.c <- voc.vc["formula_Hplus"]
+                      mz.n <- floor(as.numeric(voc.vc["ion_mass"]) * 1000)/1000
+                      formula.c <- voc.vc["ion_formula"]
                       name.c <- voc.vc["cas.name"]
                       if (grepl("|", name.c, fixed = TRUE)) {
                         name.c <- unlist(strsplit(name.c, "|", fixed = TRUE))[1]
@@ -504,8 +504,8 @@ costello.df[, "summary"] <- summary.vc
 
 costello.df[, "chebi"] <- paste0("CHEBI:", costello.df[, "chebi"])
 
-vocDB.df <- costello.df[, c("mz_Hplus",
-                            "formula_Hplus",
+vocDB.df <- costello.df[, c("ion_mass",
+                            "ion_formula",
                             "cas.name",
                             "summary",
                             "cas",

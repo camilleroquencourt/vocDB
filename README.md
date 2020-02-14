@@ -1,4 +1,4 @@
-# vocDB: Building the reference atomic and VOC annotation tables from the **ptairMS** package
+# vocDB: Building the reference atomic and VOC annotation tables for the **ptairMS** package
 
 ![](vignettes/figures/permanent/ptairMS_logo.png)
 

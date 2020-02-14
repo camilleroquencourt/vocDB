@@ -1,8 +1,8 @@
 Package: vocDB
 Type: Package
-Title: Building the 'vocDB' and 'element' tables for the annotation of VOCs with ptairMS
-Version: 0.1.6
-Date: 2020-02-13
+Title: Building the 'vocDB' and 'atomic_weights' tables for the annotation of VOCs with ptairMS
+Version: 0.1.8
+Date: 2020-02-14
 Authors: Camille Roquencourt, Paul Zheng, Pierrick Roger and Etienne Thevenot 
 Maintainer: Etienne A. Thevenot <etienne.thevenot@cea.fr>
 Description: This package builds the database file vocDB.tsv included in the ptairMS package for the annotation of VOCs.

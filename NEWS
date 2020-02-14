@@ -1,3 +1,11 @@
+CHANGES IN VERSION 0.1.8
+------------------------------
+
+MINOR INTERNAL MODIFICATION
+
+    o vocDB vignette: renaming the atomic_weights table and ion_mass and ion_formula columns in vocDB
+
+
 CHANGES IN VERSION 0.1.6
 ------------------------------
 
